@@ -18,7 +18,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 print("TOKEN:", TELEGRAM_TOKEN)
 print("OPENAI:", OPENAI_API_KEY)
 
-CHANNEL_USERNAME = "@multilevelnks"
+CHANNEL_ID = -1003787853665
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -44,7 +44,7 @@ def can_use(user_id):
 # 🔍 Check if user joined channel
 async def is_subscribed(user_id, bot):
     try:
-        member = await bot.get_chat_member(CHANNEL_USERNAME, user_id)
+        member = await bot.get_chat_member(CHANNEL_ID, user_id)
         return member.status in ["member", "administrator", "creator"]
     except:
         return False
